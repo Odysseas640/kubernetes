@@ -68,7 +68,7 @@ Hack required to provision K8s v1.15+ in LXC containers
 ##### Initialize Kubernetes Cluster
 Update the below command with the ip address of kmaster
 ```
-kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
+kubeadm init --apiserver-advertise-address=192.168.112.141 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
 ##### Deploy Calico network
 ```
