@@ -132,7 +132,8 @@ METALLB
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 ```
-Config file so Metallb knows what addresses to hand out:
+Config file so Metallb knows what addresses to hand out.
+Save this file somewhere (like the desktop) as metallb.yaml
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -146,4 +147,8 @@ data:
       protocol: layer2
       addresses:
       - 192.168.1.240-192.168.1.250
+```
+Apply configuration
+```
+kubectl create -f metallb.yaml
 ```
