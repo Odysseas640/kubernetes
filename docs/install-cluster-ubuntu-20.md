@@ -155,5 +155,5 @@ sudo chmod 0777 /tmp/metallb.yaml
 ```
 Apply configuration
 ```
-kubectl create -f metallb.yaml
+kubectl create -f /tmp/metallb.yaml
 ```
