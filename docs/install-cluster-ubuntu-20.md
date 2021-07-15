@@ -115,3 +115,15 @@ But the most likely problem and the one that usually gets me is that you don’t
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 Have Fun!!
+```
+kubectl create deploy nginx --image nginx
+```
+```
+kubectl expose deploy nginx --port 80 --type NodePort
+```
+```
+kubectl get svc
+```
+```
+kubectl get all -o wide
+```
