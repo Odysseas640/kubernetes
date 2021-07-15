@@ -157,3 +157,11 @@ Apply configuration
 ```
 kubectl create -f /tmp/metallb.yaml
 ```
+Make an nginx
+```
+kubectl create deploy nginx --image nginx
+```
+```
+kubectl expose deploy nginx --port 80 --type LoadBalancer
+```
+Browse to 192.168.112.240 (or whatever it says in the yaml file)
