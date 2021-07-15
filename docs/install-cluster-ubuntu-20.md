@@ -148,6 +148,11 @@ data:
       addresses:
       - 192.168.1.240-192.168.1.250
 ```
+Logout from sudo su - and copy it to /tmp/
+```
+sudo cp ~/Desktop/metallb.yaml /tmp/
+sudo chmod 0777 /tmp/metallb.yaml
+```
 Apply configuration
 ```
 kubectl create -f metallb.yaml
