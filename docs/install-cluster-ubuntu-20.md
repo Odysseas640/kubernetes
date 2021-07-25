@@ -157,11 +157,39 @@ Apply configuration
 ```
 kubectl create -f /tmp/metallb.yaml
 ```
-Make an nginx
+
+NFS SERVER
+Make a new virtual machine (NFS Host) and run this
 ```
-kubectl create deploy nginx --image nginx
+sudo apt update
+sudo apt install nfs-kernel-server
 ```
 ```
-kubectl expose deploy nginx --port 80 --type LoadBalancer
+sudo mkdir /srv/nfs/kubedata -p
+sudo chown nobody:nogroup /srv/nfs/general
 ```
-Browse to 192.168.112.240 (or whatever it says in the yaml file)
+Edit the exports file to broadcast the shared directory
+```
+sudo nano /etc/exports
+```
+Copy this in there:
+/srv/nfs/kubedata \*(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+After this there's something about adjusting the firewall, not very important.
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04
+
+```
+sudo systemctl enable --now nfs-server
+```
+```
+sudo exportfs -rav
+```
+```
+sudo showmount -e localhost
+```
+^ This should show: /srv/nfs/kubedata *
+
+On the NFS client:
+```
+sudo apt update
+sudo apt install nfs-common
+```
