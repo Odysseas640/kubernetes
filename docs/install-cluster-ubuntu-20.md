@@ -851,3 +851,14 @@ global:
 ```
 helm upgrade --cleanup-on-fail --install jupyterhub jupyterhub/jupyterhub --namespace jhub --create-namespace --values /home/odysseas/Desktop/jupyterhub.yaml
 ```
+
+Useful stuff:
+```
+kubectl get all -o wide --all-namespaces
+```
+```
+kubectl delete namespace jhub
+```
+```
+kubectl get pods -o wide --all-namespaces
+```
