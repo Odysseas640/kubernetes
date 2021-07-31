@@ -870,7 +870,7 @@ Copy the output from this into the big ass YAML file:
 ```
 docker images
 ```
-singleuser:
+singleuser:\n
 .........
   image:
     name: scioquiver/notebooks
