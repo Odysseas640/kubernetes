@@ -127,7 +127,7 @@ kubectl get svc
 ```
 kubectl get all -o wide
 ```
-METALLB
+# METALLB
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
@@ -158,7 +158,7 @@ Apply configuration
 kubectl create -f /tmp/metallb.yaml
 ```
 
-NFS SERVER
+# NFS SERVER
 Make a new virtual machine (NFS Host) and run this
 ```
 sudo apt update
@@ -250,7 +250,7 @@ spec:
 ```
 kubectl get sc,pv,pvc
 ```
-Jupyterhub YAML:
+# Jupyterhub YAML:
 ```
 # fullnameOverride and nameOverride distinguishes blank strings, null values,
 # and non-blank strings. For more details, see the configuration reference.
@@ -862,7 +862,7 @@ kubectl delete namespace jhub
 ```
 kubectl get pods -o wide --all-namespaces
 ```
-Install the company's single user notebook:
+# Install the company's single user notebook:
 ```
 docker pull scioquiver/notebooks:cgspatial-notebook
 ```
