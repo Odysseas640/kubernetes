@@ -870,6 +870,13 @@ Copy the output from this into the big ass YAML file:
 ```
 docker images
 ```
+singleuser:
+.........
+  image:
+    name: scioquiver/notebooks
+    tag: cgspatial-notebook
+.........
+
 Run this (exactly as before):
 ```
 helm upgrade --cleanup-on-fail --install jupyterhub jupyterhub/jupyterhub --namespace jhub --create-namespace --values /home/odysseas/Desktop/jupyterhub.yaml
