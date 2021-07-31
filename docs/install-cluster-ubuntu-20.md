@@ -6,8 +6,8 @@ This documentation guides you in setting up a cluster with one master node and o
 ## Assumptions
 |Role|FQDN|IP|OS|RAM|CPU|
 |----|----|----|----|----|----|
-|Master|kmaster.example.com|192.168.112.141|Ubuntu 20.04|2G|2|
-|Worker|kworker.example.com|192.168.112.140|Ubuntu 20.04|1G|1|
+|Master|kmaster.example.com|192.168.112.141|Ubuntu 20.04|6G|4|
+|Worker|kworker.example.com|192.168.112.140|Ubuntu 20.04|4G|3|
 
 ## On both Kmaster and Kworker
 ##### Login as `root` user
