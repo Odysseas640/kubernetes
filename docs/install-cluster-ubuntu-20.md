@@ -862,3 +862,17 @@ kubectl delete namespace jhub
 ```
 kubectl get pods -o wide --all-namespaces
 ```
+Install the company's single user notebook:
+```
+docker pull scioquiver/notebooks:cgspatial-notebook
+```
+Copy the output from this into the big ass YAML file:
+```
+docker images
+```
+Run this (exactly as before):
+```
+helm upgrade --cleanup-on-fail --install jupyterhub jupyterhub/jupyterhub --namespace jhub --create-namespace --values /home/odysseas/Desktop/jupyterhub.yaml
+```
+and wait for, like, half an hour.
+If it fails and says it timed out waiting, run it again.
