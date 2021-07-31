@@ -884,5 +884,7 @@ Run this (exactly as before):
 helm upgrade --cleanup-on-fail --install jupyterhub jupyterhub/jupyterhub --namespace jhub --create-namespace --values /home/odysseas/Desktop/jupyterhub.yaml
 ```
 and wait for, like, half an hour.
+
 I have a 50 Mbit connection and it was maxed out all throughout. I saw free space on the hard drive go down by about 20 GB.
+
 If it fails and says it timed out waiting, run it again.
