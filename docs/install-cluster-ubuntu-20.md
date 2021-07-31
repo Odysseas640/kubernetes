@@ -862,6 +862,26 @@ kubectl delete namespace jhub
 ```
 kubectl get pods -o wide --all-namespaces
 ```
+## Assign labels to nodes:
+```
+kubectl label nodes k8worker put_jupyter_notebook_here=ye
+```
+Go to NodeSelector in the YAML and set it. It should look like this:
+```
+singleuser:
+  nodeSelector:
+    jupyter_notebook_here: ye
+```
+If the worker VMs have 4 GB of RAM, set the notebook to require 3 so it'll have to go to a different worker. Otherwise it'll go in the same one.
+## Get pods to tolerate master:
+```
+singleuser:
+  extraTolerations:
+  - key: "node-role.kubernetes.io/master"
+    operator: "Exists"
+    effect: "NoSchedule"
+  nodeSelector:
+```
 # Install the company's single user notebook:
 ```
 docker pull scioquiver/notebooks:cgspatial-notebook
