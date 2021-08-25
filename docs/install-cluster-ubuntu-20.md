@@ -133,6 +133,7 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manif
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 ```
 Run "kubectl get all --all-namespaces" to see if the speakers are working. If they're not, run this:
+If metallb controller falls into an error loop again, delete namespace metallb-system and install version 9.6, and run this secret thing.
 ```
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 ```
