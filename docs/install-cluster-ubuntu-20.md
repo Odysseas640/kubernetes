@@ -132,6 +132,10 @@ kubectl get all -o wide
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 ```
+Run "kubectl get all --all-namespaces" to see if the speakers are working. If they're not, run this:
+```
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+```
 Config file so Metallb knows what addresses to hand out.
 Save this file somewhere (like the desktop) as metallb.yaml
 ```
