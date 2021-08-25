@@ -132,8 +132,8 @@ kubectl get all -o wide
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 ```
+If metallb controller falls into an error loop again, delete namespace metallb-system and install version 9.6.
 Run "kubectl get all --all-namespaces" to see if the speakers are working. If they're not, run this:
-If metallb controller falls into an error loop again, delete namespace metallb-system and install version 9.6, and run this secret thing.
 ```
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 ```
