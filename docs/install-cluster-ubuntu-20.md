@@ -132,6 +132,7 @@ kubectl get all -o wide
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
 ```
+You might want to edit this metallb.yaml file, to get the controller to run on the master node. I think it makes more sense.
 If metallb controller falls into an error loop again, delete namespace metallb-system and install version 9.6.
 Run "kubectl get all --all-namespaces" to see if the speakers are working. If they're not, run this:
 ```
