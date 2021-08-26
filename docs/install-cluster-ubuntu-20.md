@@ -129,8 +129,8 @@ kubectl get all -o wide
 ```
 # METALLB
 ```
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/metallb.yaml
 ```
 You might want to edit this metallb.yaml file, to get the controller to run on the master node. I think it makes more sense.
 If metallb controller falls into an error loop again, delete namespace metallb-system and install version 9.6.
@@ -154,14 +154,13 @@ data:
       addresses:
       - 192.168.1.240-192.168.1.250
 ```
-Logout from sudo su - and copy it to /tmp/
-```
-sudo cp ~/Desktop/metallb.yaml /tmp/
-sudo chmod 0777 /tmp/metallb.yaml
-```
 Apply configuration
 ```
-kubectl create -f /tmp/metallb.yaml
+kubectl create -f /home/scio/metallb.yaml
+```
+Install nginx to see if it works
+```
+kubectl expose deploy nginx --port 80 --type LoadBalancer
 ```
 
 # NFS SERVER
@@ -201,7 +200,7 @@ sudo apt install nfs-common
 ```
 Try to mount the volume to see if it works:
 ```
-mount -t nfs 192.168.112.143:/srv/nfs/kubedata /mnt
+mount -t nfs 172.26.7.45:/srv/nfs/kubedata /mnt
 ```
 ```
 mount | grep kubedata
@@ -222,7 +221,7 @@ Deploy with Helm:
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
 ```
-helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=192.168.112.143 --set nfs.path=/srv/nfs/kubedata
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=172.26.7.45 --set nfs.path=/srv/nfs/kubedata
 helm list
 ```
 ```
