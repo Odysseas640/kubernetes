@@ -102,7 +102,7 @@ kubectl get nodes
 kubectl get cs
 ```
 
-Hi.
+(from Stackoverflow) Kubectl commands won't work, do this to fix it:
 Check that the api server is actually running and hasn’t crashed:
 
 ```
@@ -114,7 +114,7 @@ But the most likely problem and the one that usually gets me is that you don’t
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-Have Fun!!
+Try some nginx
 ```
 kubectl create deploy nginx --image nginx
 ```
@@ -159,6 +159,9 @@ Apply configuration
 kubectl create -f /home/scio/metallb.yaml
 ```
 Install nginx to see if it works
+```
+kubectl create deploy nginx --image nginx
+```
 ```
 kubectl expose deploy nginx --port 80 --type LoadBalancer
 ```
