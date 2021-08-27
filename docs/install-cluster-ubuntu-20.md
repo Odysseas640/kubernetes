@@ -116,10 +116,11 @@ But the most likely problem and the one that usually gets me is that you don’t
 ```
 Try some nginx
 ```
-kubectl create deploy nginx --image nginx
+kubectl create namespace nginx
+kubectl create deploy nginx --image nginx -n nginx
 ```
 ```
-kubectl expose deploy nginx --port 80 --type NodePort
+kubectl expose deploy nginx --port 80 --type NodePort -n nginx
 ```
 ```
 kubectl get svc
@@ -160,10 +161,11 @@ kubectl create -f /home/scio/metallb.yaml
 ```
 Install nginx to see if it works
 ```
-kubectl create deploy nginx --image nginx
+kubectl create namespace nginx
+kubectl create deploy nginx --image nginx -n nginx
 ```
 ```
-kubectl expose deploy nginx --port 80 --type LoadBalancer
+kubectl expose deploy nginx --port 80 --type LoadBalancer -n nginx
 ```
 
 # NFS SERVER
