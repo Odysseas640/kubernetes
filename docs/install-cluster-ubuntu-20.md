@@ -174,7 +174,7 @@ sudo apt install nfs-kernel-server
 ```
 ```
 sudo mkdir /srv/nfs/kubedata -p
-sudo chown nobody:nogroup /srv/nfs/general
+sudo chown nobody:nogroup /srv/nfs/kubedata
 ```
 Edit the exports file to broadcast the shared directory
 ```
