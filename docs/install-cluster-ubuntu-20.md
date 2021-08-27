@@ -894,11 +894,11 @@ singleuser:
 ```
 docker pull scioquiver/notebooks:cgspatial-notebook
 ```
-Copy the output from this into the big ass YAML file:
+Run this command
 ```
 docker images
 ```
-(this is it)
+And copy the output (where it says scioquiver) into the big ass YAML file. It should look like this:
 ```
 singleuser:
 .........
@@ -911,7 +911,7 @@ Run this (exactly as before):
 ```
 helm upgrade --cleanup-on-fail --install jupyterhub jupyterhub/jupyterhub --namespace jhub --create-namespace --values /home/odysseas/Desktop/jupyterhub.yaml
 ```
-and wait for, like, half an hour.
+and wait for, like, half an hour (the first time, from the second time and on it should be very quick).
 
 I have a 50 Mbit connection and it was maxed out all throughout. I saw free space on the hard drive go down by about 20 GB.
 
