@@ -178,7 +178,7 @@ kubectl delete namespace nginx
 Make a new virtual machine (NFS Host) and run this
 ```
 sudo apt update
-sudo apt install nfs-kernel-server
+sudo apt install nfs-kernel-server -y
 ```
 ```
 sudo mkdir /srv/nfs/kubedata -p
@@ -189,7 +189,9 @@ Edit the exports file to broadcast the shared directory
 sudo nano /etc/exports
 ```
 Copy this in there:
+```
 /srv/nfs/kubedata \*(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+```
 After this there's something about adjusting the firewall, not very important.
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04
 
@@ -207,7 +209,7 @@ sudo showmount -e localhost
 On the NFS client:
 ```
 sudo apt update
-sudo apt install nfs-common
+sudo apt install nfs-common -y
 ```
 Try to mount the volume to see if it works:
 ```
