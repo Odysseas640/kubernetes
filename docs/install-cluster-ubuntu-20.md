@@ -200,6 +200,8 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-u
 ```
 sudo systemctl enable --now nfs-server
 sudo exportfs -rav
+```
+```
 sudo showmount -e localhost
 ```
 ^ This should show: /srv/nfs/kubedata *
