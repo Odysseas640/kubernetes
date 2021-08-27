@@ -4,10 +4,12 @@ Follow this documentation to set up a Kubernetes cluster on __Ubuntu 20.04 LTS__
 This documentation guides you in setting up a cluster with one master node and one worker node.
 
 ## Assumptions
-|Role|FQDN|IP|OS|RAM|CPU|
+|Role|IP|OS|RAM|CPU|
 |----|----|----|----|----|----|
-|Master|kmaster.example.com|192.168.112.141|Ubuntu 20.04|6G|4|
-|Worker|kworker.example.com|192.168.112.140|Ubuntu 20.04|4G|3|
+|Master|192.168.112.141|Ubuntu 20.04|6G|4|
+|Worker 1|192.168.112.140|Ubuntu 20.04|4G|3|
+|Worker 2|192.168.112.142|Ubuntu 20.04|4G|3|
+|NFS |192.168.112.143|Ubuntu 20.04|3G|2|
 
 ## On both Kmaster and Kworker
 ##### Login as `root` user
