@@ -5,7 +5,7 @@ This documentation guides you in setting up a cluster with one master node and o
 
 ## Assumptions
 |Role|IP|OS|RAM|CPU|
-|----|----|----|----|----|----|
+|----|----|----|----|----|
 |Master|192.168.112.141|Ubuntu 20.04|6G|4|
 |Worker 1|192.168.112.140|Ubuntu 20.04|4G|3|
 |Worker 2|192.168.112.142|Ubuntu 20.04|4G|3|
