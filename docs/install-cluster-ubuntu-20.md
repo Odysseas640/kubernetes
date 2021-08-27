@@ -128,6 +128,9 @@ kubectl get svc
 ```
 kubectl get all -o wide
 ```
+```
+delete namespace nginx
+```
 # METALLB
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
@@ -166,6 +169,9 @@ kubectl create deploy nginx --image nginx -n nginx
 ```
 ```
 kubectl expose deploy nginx --port 80 --type LoadBalancer -n nginx
+```
+```
+kubectl delete namespace nginx
 ```
 
 # NFS SERVER
