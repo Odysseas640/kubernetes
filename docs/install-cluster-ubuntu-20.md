@@ -211,13 +211,13 @@ sudo apt install nfs-common -y
 ```
 Try to mount the volume to see if it works:
 ```
-mount -t nfs 172.26.2.36:/srv/nfs/kubedata /mnt
+sudo mount -t nfs 172.26.2.36:/srv/nfs/kubedata /mnt
 ```
 ```
-mount | grep kubedata
+sudo mount | grep kubedata
 ```
 ```
-umount /mnt
+sudo umount /mnt
 ```
 Go to https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner/tree/v4.0.2
 and choose v4.0.2
