@@ -215,7 +215,7 @@ sudo apt install nfs-common -y
 ```
 Try to mount the volume to see if it works:
 ```
-mount -t nfs 172.26.7.45:/srv/nfs/kubedata /mnt
+mount -t nfs 172.26.2.36:/srv/nfs/kubedata /mnt
 ```
 ```
 mount | grep kubedata
@@ -236,7 +236,7 @@ Deploy with Helm:
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
 ```
-helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=172.26.7.45 --set nfs.path=/srv/nfs/kubedata
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=172.26.2.36 --set nfs.path=/srv/nfs/kubedata
 helm list
 ```
 ```
