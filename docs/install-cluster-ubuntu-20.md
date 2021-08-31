@@ -192,7 +192,7 @@ sudo nano /etc/exports
 ```
 Copy this in there:
 ```
-/srv/nfs/kubedata \*(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+/srv/nfs/kubedata *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
 ```
 After this there's something about adjusting the firewall, not very important.
 https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04
