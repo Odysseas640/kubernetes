@@ -176,6 +176,12 @@ kubectl expose deploy nginx --port 80 --type LoadBalancer -n nginx
 kubectl delete namespace nginx
 ```
 
+# LOAD BALANCER FOR AWS
+```
+kubectl create namespace aws-nlb
+kubectl create -f /home/scio/nlb.yaml
+```
+
 # NFS SERVER
 Make a new virtual machine (NFS Host) and run this
 ```
