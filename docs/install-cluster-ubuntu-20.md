@@ -891,6 +891,9 @@ kubectl get pods -o wide --all-namespaces
 ```
 kubectl label nodes k8worker put_jupyter_notebook_here=ye
 ```
+```
+kubectl get nodes --show-labels
+```
 Go to NodeSelector in the YAML and set it. It should look like this:
 ```
 singleuser:
