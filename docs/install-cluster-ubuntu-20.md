@@ -181,6 +181,9 @@ kubectl delete namespace nginx
 kubectl create namespace aws-nlb
 kubectl create -f /home/scio/nlb.yaml
 ```
+```
+kubectl delete namespace aws-nlb
+```
 
 # NFS SERVER
 Make a new virtual machine (NFS Host) and run this
