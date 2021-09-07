@@ -131,7 +131,7 @@ kubectl get svc
 kubectl get all -o wide
 ```
 ```
-delete namespace nginx
+kubectl delete namespace nginx
 ```
 # METALLB - NOT COMPATIBLE WITH AWS
 ```
