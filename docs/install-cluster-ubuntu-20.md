@@ -874,6 +874,10 @@ global:
   safeToShowValues: false
 ```
 ```
+curl https://raw.githubusercontent.com/helm/helm/HEAD/scripts/get-helm-3 | bash
+helm version
+```
+```
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
 ```
