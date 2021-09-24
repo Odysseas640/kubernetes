@@ -133,6 +133,26 @@ kubectl get all -o wide
 ```
 kubectl delete namespace nginx
 ```
+# RESET CLUSTER
+```
+kubeadm reset -y
+sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube* -y
+sudo apt-get autoremove -y
+sudo rm -rf ~/.kube
+```
+```
+sudo apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+```
+```
+sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+```
+```
+reboot
+```
 # METALLB - NOT COMPATIBLE WITH AWS
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
@@ -926,7 +946,7 @@ Run this command
 ```
 docker images
 ```
-And copy the output (where it says scioquiver) into the big ass YAML file. It should look like this:
+And copy the output (where it says scioquiver) into the big YAML file. It should look like this:
 ```
 singleuser:
 .........
