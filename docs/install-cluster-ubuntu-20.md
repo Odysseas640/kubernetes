@@ -153,7 +153,8 @@ sudo rm -rf /var/run/docker.sock
 ```
 reboot
 ```
-# METALLB - NOT COMPATIBLE WITH AWS
+# METALLB - NOT COMPATIBLE WITH AWS, USE NodePort
+## You know what, there's no need for Jupyterhub to have its own IP address anyway. Just put it in port 30001.
 ```
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.10.2/manifests/metallb.yaml
