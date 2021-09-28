@@ -70,7 +70,7 @@ Hack required to provision K8s v1.15+ in LXC containers
 ##### Initialize Kubernetes Cluster
 Update the below command with the ip address of kmaster
 ```
-kubeadm init --apiserver-advertise-address=192.168.112.141 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
+kubeadm init --apiserver-advertise-address=10.100.100.10 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
 ##### Deploy Calico network
 ```
@@ -241,7 +241,7 @@ sudo apt install nfs-common -y
 ```
 Try to mount the volume to see if it works:
 ```
-sudo mount -t nfs 172.26.2.36:/srv/nfs/kubedata /mnt
+sudo mount -t nfs 10.100.100.13:/srv/nfs/kubedata /mnt
 ```
 ```
 sudo mount | grep kubedata
@@ -262,7 +262,7 @@ Deploy with Helm:
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
 ```
-helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=172.26.2.36 --set nfs.path=/srv/nfs/kubedata
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=10.100.100.13 --set nfs.path=/srv/nfs/kubedata
 helm list
 ```
 ```
