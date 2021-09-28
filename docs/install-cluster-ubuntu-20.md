@@ -135,7 +135,7 @@ kubectl delete namespace nginx
 ```
 # RESET CLUSTER
 ```
-kubeadm reset -y
+kubeadm reset
 ```
 ```
 sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube* -y
