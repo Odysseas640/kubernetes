@@ -91,6 +91,9 @@ kubeadm token create --print-join-command
 logout
 logout
 ```
+```
+kubectl get all --all-namespaces
+```
 
 ##### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
