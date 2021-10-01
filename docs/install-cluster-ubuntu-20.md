@@ -178,6 +178,11 @@ sudo groupdel docker
 sudo rm -rf /var/run/docker.sock
 ```
 ```
+rm -f -r /opt/cni/bin/antrea
+rm -f -r /var/log/antrea
+rm -f -r /etc/cni/net.d/10-antrea.conflist
+```
+```
 reboot
 ```
 # METALLB - NOT COMPATIBLE WITH AWS, USE NodePort
