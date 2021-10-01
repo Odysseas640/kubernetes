@@ -76,6 +76,12 @@ kubeadm init --apiserver-advertise-address=10.100.100.10 --pod-network-cidr=192.
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 ```
+```
+kubectl create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+```
+```
+kubectl create -f /home/scio/calico.yaml
+```
 
 ##### Cluster join command
 ```
