@@ -314,6 +314,20 @@ spec:
 ```
 kubectl get sc,pv,pvc
 ```
+## Assign labels to nodes:
+```
+kubectl label nodes k8worker put_jupyter_notebook_here=ye
+```
+```
+kubectl get nodes --show-labels
+```
+Go to NodeSelector in the YAML and set it. It should look like this:
+```
+singleuser:
+  nodeSelector:
+    jupyter_notebook_here: ye
+```
+If the worker VMs have 4 GB of RAM, set the notebook to require 3 so it'll have to go to a different worker. Otherwise it'll go in the same one.
 # Jupyterhub YAML:
 ```
 # fullnameOverride and nameOverride distinguishes blank strings, null values,
@@ -934,20 +948,6 @@ kubectl delete namespace jhub
 ```
 kubectl get pods -o wide --all-namespaces
 ```
-## Assign labels to nodes:
-```
-kubectl label nodes k8worker put_jupyter_notebook_here=ye
-```
-```
-kubectl get nodes --show-labels
-```
-Go to NodeSelector in the YAML and set it. It should look like this:
-```
-singleuser:
-  nodeSelector:
-    jupyter_notebook_here: ye
-```
-If the worker VMs have 4 GB of RAM, set the notebook to require 3 so it'll have to go to a different worker. Otherwise it'll go in the same one.
 ## Get pods to tolerate master:
 ```
 singleuser:
