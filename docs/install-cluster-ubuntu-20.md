@@ -72,6 +72,11 @@ Update the below command with the ip address of kmaster
 ```
 kubeadm init --apiserver-advertise-address=10.100.100.10 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 ##### Deploy Calico network
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
@@ -87,20 +92,13 @@ kubectl create -f /home/scio/calico.yaml
 ```
 kubeadm token create --print-join-command
 ```
+Other stuff
 ```
 logout
 logout
 ```
 ```
 kubectl get all --all-namespaces
-```
-
-##### To be able to run kubectl commands as non-root user
-If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
-```
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 ## On Kworker
@@ -117,18 +115,6 @@ kubectl get nodes
 kubectl get cs
 ```
 
-(from Stackoverflow) Kubectl commands won't work, do this to fix it:
-Check that the api server is actually running and hasn’t crashed:
-
-```
-docker ps | grep kube-apiserver
-```
-But the most likely problem and the one that usually gets me is that you don’t have a .kube directory with the right config in it. Try this:
-```
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
 Try some nginx
 ```
 kubectl create namespace nginx
@@ -229,7 +215,7 @@ kubectl expose deploy nginx --port 80 --type LoadBalancer -n nginx
 kubectl delete namespace nginx
 ```
 
-# LOAD BALANCER FOR AWS
+# LOAD BALANCER FOR AWS - NOT TESTED
 ```
 kubectl create namespace aws-nlb
 kubectl create -f /home/scio/nlb.yaml
