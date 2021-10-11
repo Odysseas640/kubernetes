@@ -950,6 +950,9 @@ Where it says (exactly this):
       http:
       https:
     disableHttpPort: false
+    extraPorts: []
+    loadBalancerIP:
+    loadBalancerSourceRanges: []
 ```
 Change it to:
 ```
@@ -961,6 +964,9 @@ Change it to:
       http: 30000
       https: 30001
     disableHttpPort: false
+    extraPorts: []
+    loadBalancerIP:
+    loadBalancerSourceRanges: []
 ```
 ## Get pods to tolerate master:
 ```
