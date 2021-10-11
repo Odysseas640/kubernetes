@@ -77,7 +77,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-##### Deploy Calico network (only one of these)
+##### Deploy Calico network (only one of these, THE SECOND ONE)
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 ```
@@ -92,7 +92,7 @@ kubectl create -f /home/scio/calico.yaml
 ```
 kubeadm token create --print-join-command
 ```
-Other stuff
+Other stuff (for copying and pasting)
 ```
 logout
 logout
@@ -115,7 +115,7 @@ kubectl get nodes
 kubectl get cs
 ```
 
-Try some nginx
+Try some nginx to see if it works
 ```
 kubectl create namespace nginx
 kubectl create deploy nginx --image nginx -n nginx
@@ -215,17 +215,8 @@ kubectl expose deploy nginx --port 80 --type LoadBalancer -n nginx
 kubectl delete namespace nginx
 ```
 
-# LOAD BALANCER FOR AWS - NOT TESTED
-```
-kubectl create namespace aws-nlb
-kubectl create -f /home/scio/nlb.yaml
-```
-```
-kubectl delete namespace aws-nlb
-```
-
 # NFS SERVER
-Make a new virtual machine (NFS Host) and run this
+Make a new virtual machine (NFS Host) and run this (I don't think it has to be a new machine, it'll probably work in the master or a worker)
 ```
 sudo apt update
 sudo apt install nfs-kernel-server -y
@@ -314,7 +305,7 @@ spec:
 ```
 kubectl get sc,pv,pvc
 ```
-## Assign labels to nodes:
+## Assign labels to nodes (optional):
 ```
 kubectl label nodes k8worker put_jupyter_notebook_here=ye
 ```
@@ -947,6 +938,30 @@ kubectl delete namespace jhub
 ```
 ```
 kubectl get pods -o wide --all-namespaces
+```
+
+## To make Jupyterhub NodePort instead of LoadBalancer (so it's in the worker's IP in port 30000, instead of its own IP, which I'm not sure how to do on AWS)
+Where it says (exactly this):
+```
+  service:
+    type: LoadBalancer
+    labels: {}
+    annotations: {}
+    nodePorts:
+      http:
+      https:
+    disableHttpPort: false
+```
+Change it to:
+```
+  service:
+    type: NodePort
+    labels: {}
+    annotations: {}
+    nodePorts:
+      http: 30000
+      https: 30001
+    disableHttpPort: false
 ```
 ## Get pods to tolerate master:
 ```
