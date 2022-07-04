@@ -77,7 +77,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-##### Deploy Calico network (only one of these, THE SECOND ONE)
+##### Deploy Calico network (use only one of these 3, USE THE SECOND ONE)
 ```
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 ```
